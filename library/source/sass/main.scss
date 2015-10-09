@@ -1,0 +1,61 @@
+@import "compass";
+@import "functions/functions";
+
+//    RESET
+@import "compass/reset";
+
+//    VAR
+@import "var/colors";
+@import "var/sizes";
+@import "var/typo";
+@import "var/mixins";
+@import "var/icons";
+@import "var/sprites";
+
+//    STYLE
+@import "style/general";
+
+//    PAGES STYLES
+@import "style/pages/home";
+@import "style/pages/contact";
+
+//    PARTS STYLE
+@import "style/parts/header";
+@import "style/parts/tweets-list";
+@import "style/parts/main";
+@import "style/parts/footer";
+
+//    RESPONSIVE
+/* If screen is below the specified value, they apply the style */
+@media only screen and (max-width: 1279px) {
+  @import "breakpoints/below1280";
+}
+@media only screen and (max-width: 1023px) {
+  @import "breakpoints/below1024";
+}
+@media only screen and (max-width: 959px) {
+  @import "breakpoints/below960";
+}
+@media only screen and (max-width: 719px) {
+  @import "breakpoints/below720";
+}
+@media only screen and (max-width: 479px) {
+  @import "breakpoints/below480";
+}
+@media only screen and (max-width: 359px) {
+  @import "breakpoints/below360";
+}
+/* If screen is above the specified value, they apply the style */
+@media only screen and (max-width: 1499px) {
+  @import "breakpoints/above1500";
+}
+
+/* If Retina screens */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+  @import "breakpoints/2x";
+
+}
+

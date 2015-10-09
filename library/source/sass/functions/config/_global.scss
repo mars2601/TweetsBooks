@@ -1,0 +1,15 @@
+// FONTS & FONT SIZES
+$baseFontSize: 17px;
+
+// GRIDZ & WIDTHZ
+    // Following params have to be in same unit. Can be px, em or rem.
+$iBaseWidth: 1280;
+$baseWidth: ($iBaseWidth / 17 * 1em);
+$iGutter: 0;
+$gutterWidth: ($iGutter / 17 * 1em);
+    // colCount: number of columns (without units)
+$colCount: 12;
+
+// SPRITES
+//$icons-1x: sprite-map("assets/img/sprite/@1x/*.png", $layout: vertical, $spacing: 4px);
+//$icons-2x: sprite-map("assets/img/sprite/@2x/*.png", $layout: vertical, $spacing: 4px);

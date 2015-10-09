@@ -1,0 +1,112 @@
+//    TWEETS-LIST GRID SYSTEM
+
+// get col width
+$tweets-list_width: 1000;
+$tweets-list_colCount: 3;
+$tweets-list_gutterWidth: 30;
+$tweets-list_columnWidth: ( $tweets-list_width - (($tweets-list_colCount - 1) * $tweets-list_gutterWidth ) ) / $tweets-list_colCount;
+@function tweets-list_fixed($col){
+  @if $col == 0 { @return 0 }
+  @return ( ( $col * $tweets-list_columnWidth ) + ( ( $col - 1 ) * $tweets-list_gutterWidth ) );
+}
+@function tweets-list_col($col,$parent){
+  @if $col == 0 { @return 0 }
+  @return percentage( tweets-list_fixed($col) / tweets-list_fixed($parent) );
+}
+@function tweets-list_gutter($parent){
+  @if $parent == 0 { @return 0 }
+  @return percentage($tweets-list_gutterWidth / ( ( $parent * $tweets-list_columnWidth ) + ( ( $parent - 1 ) * $tweets-list_gutterWidth ) ) );
+}
+
+.tweets-list{
+  &__item{
+    margin-top: s(15, 16);
+    padding: s(30, 16);
+    background-color: $cWhite;
+    &__art{
+      position: relative;
+    }
+    &__date{
+      color: $cGrey10;
+      font-family: $fSignikaLight;
+      padding-bottom: s(20, 16);
+      display: block;
+    }
+    &__title, &__link{
+      font-family: $fSignikaSemibold;
+      font-size: s($sFontBaseSup, 16);
+      line-height: s(22, 16);
+    }
+    &__title{
+      color: $cBlack;
+      opacity: .5;
+    }
+    .param + .tweets-list__item__title, &__date + .tweets-list__item__title{
+      opacity: 1;
+    }
+    &__title--hashtag{
+      color: $cBlue80;
+    }
+    &__link{
+      color: $cGrey10;
+      text-decoration: underline;
+      display: inline-block;
+      position: relative;
+      max-width: 83%;
+      height: 20px;
+      overflow: hidden;
+    }
+    &__img{
+      width: 100%;
+      height: auto;
+      margin-top: s(10, 16);
+    }
+  }
+}
+
+.param{
+  float: right;
+  width: s(54, 16);
+  position: absolute;
+  top: 0;
+  right: 0;
+  &__item{
+    &:before{
+      top: -2px;
+      position: relative;
+      color: $cGrey10;
+      font-size: s($sFontBig, 16);
+      @include transition(all 0.15s ease);
+    }
+    display: inline-block;
+    float: right;
+    width: s(35, 16);
+    height: s(35, 16);
+    margin: 0;
+    padding: 0 s(2, 16);
+    border: none;
+    background-color: transparent;
+    @include transition(all 0.15s ease);
+    &:hover{
+      cursor: pointer;
+      &:before{
+        color: $cBlue80;
+      }
+    }
+  }
+  &__item--favorite{
+    &:before{
+      @include icon(bookmarks);
+    }
+    &:hover{
+      &:before{
+        color: $cYellow;
+      }
+    }
+  }
+  &__item--readed{
+    &:before{
+      @include icon(eye2);
+    }
+  }
+}

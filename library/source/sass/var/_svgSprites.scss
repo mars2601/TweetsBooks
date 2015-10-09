@@ -1,0 +1,41 @@
+.icon {
+    font-size: 10px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 15.13em 41.7em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../svg/sprite.png");
+}
+
+.icon.uEA01-automobile:before {
+    background-position: 0em 0em;
+    width: 1.6em;
+    height: 1.4em;
+}
+
+.icon.uEA0D-feder:before {
+    background-position: 0em -1.4em;
+    width: 8.43em;
+    height: 5.89em;
+}
+
+.icon.uEA0E-full-logo-vertical:before {
+    background-position: 0em -7.3em;
+    width: 15.12em;
+    height: 26.27em;
+}
+
+.icon.uEA0F-full-logo:before {
+    background-position: 0em -33.6em;
+    width: 15.13em;
+    height: 8.09em;
+}
+

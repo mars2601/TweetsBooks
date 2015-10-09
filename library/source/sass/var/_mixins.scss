@@ -1,0 +1,152 @@
+//    ACTUS GRID SYSTEM
+
+// get col width
+$actus_width: 1066.656;
+$actus_colCount: 3;
+$actus_gutterWidth: 20;
+$actus_columnWidth: ( $actus_width - (($actus_colCount - 1) * $actus_gutterWidth ) ) / $actus_colCount;
+@function actu_fixed($col){
+    @if $col == 0 { @return 0 }
+    @return ( ( $col * $actus_columnWidth ) + ( ( $col - 1 ) * $actus_gutterWidth ) );
+}
+@function actu_col($col,$parent){
+    @if $col == 0 { @return 0 }
+    @return percentage( actu_fixed($col) / actu_fixed($parent) );
+}
+@function actu_gutter($parent){
+    @if $parent == 0 { @return 0 }
+    @return percentage($actus_gutterWidth / ( ( $parent * $actus_columnWidth ) + ( ( $parent - 1 ) * $actus_gutterWidth ) ) );
+}
+
+
+//    MOTIF BG
+
+@mixin motif() {
+      background-image: url('../img/motif@1x.png');
+      background-repeat: repeat;
+      background-position: center center;
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            background-image: url('../img/motif@2x.png');
+            background-size: 50% 50%;
+            background-position: center center;
+      }
+}
+
+//  TYPO
+
+@mixin content($baseFont: true) {
+      @if $baseFont == true {
+            font-family: $fAktiv;
+            font-weight: $fwLight;
+            letter-spacing: ps_ls(25);
+      }
+      p+p, ul+p, p+ul, ol+p, p+ol, ul+ul, ol+ol, ul+ol, ol+ul{
+            margin-top: s($sBaseLH);
+      }
+      strong{
+            font-weight: $fwBold;
+      }
+      em{
+            font-style: italic;
+      }
+      del{
+            text-decoration: line-through;
+      }
+      a{
+            text-decoration: underline;
+      }
+      ul,ol{
+          padding-left: s(24);
+            ol,ul{
+                  margin-top: s(10);
+            }
+            li{
+                  padding-left: s(16);
+                  &+li{
+                        margin-top: s(10);
+                  }
+            }
+      }
+      ul{
+            list-style-type: square;
+            ul{
+                  list-style-type: circle;
+                  ul{
+                        list-style-type: disc;
+                  }
+            }
+      }
+      ol{
+            list-style-type: decimal;
+            ol{
+                  list-style-type: lower-alpha;
+                  ol{
+                        list-style-type: decimal;
+                  }
+            }
+      }
+}
+
+//  ANIMS
+
+@keyframes rotating{
+  0% { @include rotateZ(0); }
+  100% { @include rotateZ(360deg); }
+}
+
+// BOX SHADOWS
+
+@mixin box-shadow( $shadow1, $shadow2:false, $shadow3:false, $shadow4:false, $shadow5:false, $shadow6:false, $shadow7:false, $shadow8:false, $shadow9:false ) {
+  $params: $shadow1;
+  @if $shadow2 { $params: $shadow1, $shadow2; }
+  @if $shadow3 != false { $params: $shadow1, $shadow2, $shadow3; }
+  @if $shadow4 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4; }
+  @if $shadow5 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5; }
+  @if $shadow6 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5, $shadow6; }
+  @if $shadow7 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5, $shadow6, $shadow7}
+  @if $shadow8 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5, $shadow6, $shadow7, $shadow8 }
+  @if $shadow9 != false { $params: $shadow1, $shadow2, $shadow3, $shadow4, $shadow5, $shadow6, $shadow7, $shadow8, $shadow9 }
+
+  -webkit-box-shadow: $params;
+  -moz-box-shadow: $params;
+  box-shadow: $params;
+}
+
+// LINEAR GRADIENT
+
+@mixin linear-gradient($angle, $color-stops...) {
+  $_angle-with-vendor-prefix: "";
+  $_angle: "";
+  @if $angle == "to top" or $angle == "bottom" {
+    $_angle-with-vendor-prefix: bottom;
+    $_angle: to top;
+  } @else if $angle == "to right" or $angle == "left" {
+    $_angle-with-vendor-prefix: left;
+    $_angle: to right;
+  } @else if $angle == "to bottom" or $angle == "top" {
+    $_angle-with-vendor-prefix: top;
+    $_angle: to bottom;
+  } @else if $angle == "to left" or $angle == "right" {
+    $_angle-with-vendor-prefix: right;
+    $_angle: to left;
+  } @else if $angle == "to top right" or $angle == "bottom left" {
+    $_angle-with-vendor-prefix: bottom left;
+    $_angle: to top right;
+  } @else if $angle == "to bottom right" or $angle == "top left" {
+    $_angle-with-vendor-prefix: top left;
+    $_angle: to bottom right;
+  } @else if $angle == "to bottom left" or $angle == "top right" {
+    $_angle-with-vendor-prefix: top right;
+    $_angle: to bottom left;
+  } @else if $angle == "to top left" or $angle == "bottom right" {
+    $_angle-with-vendor-prefix: bottom right;
+    $_angle: to top left;
+  } @else {
+    $_angle-with-vendor-prefix: $angle % 360;
+    $_angle: (90 - $angle) % 360;
+  }
+  background: -webkit-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+  background: -moz-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+  background: -o-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+  background: linear-gradient($_angle, $color-stops);
+}

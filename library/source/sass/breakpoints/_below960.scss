@@ -1,0 +1,14 @@
+// RESPONSIVE
+// BELOW 960px
+
+.container{
+  padding: 0 s(10, 16);
+}
+
+$tweets-list_gutterWidth: 20;
+
+.tweets-list {
+  &__item {
+    padding: s(15, 16);
+  }
+}

@@ -1,0 +1,33 @@
+.footer{
+  width: 100%;
+  height: s(75, 16);
+  line-height: s(75, 16);
+  background-color: $cBlue80;
+  &__title{
+    width: 100%;
+    text-align: center;
+    color: $cWhite;
+    font-family: $fSignikaLight;
+    font-size: s($sFontBaseMed, 16);
+  }
+  &__title--love{
+    width: s(18, 16);
+    height: s(25, 16);
+    display: inline-block;
+    &:before{
+      @include icon(trophy);
+      color: $cBlueTwitter;
+      top: 2px;
+      position: relative;
+    }
+  }
+  &__title--link{
+    color: $cGrey5;
+    font-family: $fSignikaSemibold;
+    text-decoration: none;
+    letter-spacing: s(0.5, 16);
+    &:hover{
+      color: $cBlueTwitter;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+a{
+  text-decoration: none;
+}
+
+.container{
+  padding: 0 s(20, 16);
+}
+
+button, a{
+  &:focus{
+    outline: none;
+  }
+}
+
+.hidden{
+  @include hidden();
+}

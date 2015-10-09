@@ -1,0 +1,52 @@
+// RESPONSIVE
+// BELOW 720px
+
+
+.mainPage{
+  .header{
+    &__user{
+      width: col(2, 4);
+    }
+    &__logo{
+      width: col(2, 4);
+      text-align: right;
+    }
+    &__logo--alone{
+      width: col(4, 4);
+      text-align: center;
+    }
+  }
+  .main{
+    &__filter {
+      overflow: visible;
+      height: s(200, 16);
+      &__button {
+        width: col(4, 4);
+        @include box-shadow( 0px -1px 0px $cGrey10 );
+        &.current{
+          @include box-shadow( 0px 1px 0px $cGrey10, 0px -1px 0px $cGrey10 );
+        }
+      }
+    }
+    &__list{
+      width: tweets-list_col(3, 3);
+      margin-right: 0;
+      &:first-child{
+        margin-right: 0;
+      }
+      &__title{
+        padding-top: s(60, 16);
+      }
+    }
+    &__list--readed{
+      width: tweets-list_col(3, 3);
+    }
+    &__list--notreaded{
+      width: tweets-list_col(3, 3);
+    }
+    &__list--favorite{
+      width: tweets-list_col(3, 3);
+
+    }
+  }
+}

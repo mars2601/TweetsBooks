@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Signika-Light';
+    src: url('../font/Signika-Light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Signika-Regular';
+    src: url('../font/Signika-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Signika-Semibold';
+    src: url('../font/Signika-Semibold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signika-Bold';
+    src: url('../font/Signika-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+$fSignikaLight: 'Signika-Light', sans-serif;
+$fSignikaRegular: 'Signika-Regular', sans-serif;
+$fSignikaSemibold: 'Signika-Semibold', sans-serif;
+$fSignikaBold: 'Signika-Bold', sans-serif;
+
+// FONT-WEIGHTS
+$fwLight: 300;
+$fwRegular: 400;
+$fwMedium: 500;
+$fwBold: 700;
+
+
+
+@mixin icon-base() {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin icon-include($s) {
+  @each $icon in $icons {
+    @if nth($icon, 1) == $s {
+      content: nth($icon, 2);
+    }
+  }
+}
+@mixin icon($s) {
+  @include icon-base();
+  @include icon-include($s);
+}
+
+

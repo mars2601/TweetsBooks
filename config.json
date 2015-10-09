@@ -1,0 +1,34 @@
+{
+  "path": {
+    "root": "library/",
+    "src": {
+      "styles": "source/sass/",
+      "js": "source/js/",
+      "img": "source/img/",
+      "svg": "source/svg/",
+      "icon": "source/icons/",
+      "font": "source/font/"
+    },
+    "dest": {
+      "styles": "assets/css/",
+      "js": "assets/js/",
+      "img": "assets/img/",
+      "font": "assets/font/"
+    }
+  },
+  "notify": {
+    "template": " task complete: <%= file.relative %> writed!"
+  },
+  "files": {
+    "name": "main",
+    "suffix": ".light"
+  },
+  "scripts": {
+        "src": [
+          "library/source/js/vendor/jquery-1.11.3.min.js",
+          "library/source/js/vendor/modernizr.min.js",
+          "library/source/js/main.js",
+          "library/source/js/class/**/*.js"
+        ]
+  }
+}

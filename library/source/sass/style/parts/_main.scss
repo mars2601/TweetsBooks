@@ -1,0 +1,160 @@
+.mainPage{
+  .main{
+    background-color: $cGrey5;
+    &__login{
+      min-height: 735px;
+      display: table;
+      text-align: center;
+      width: 100%;
+      &__infos{
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 0 s(20, 16);
+        text-align: center;
+        top: -15px;
+        position: relative;
+      }
+      &__intro{
+        padding: 0 5%;
+        color: $cBlue80;
+        font-family: $fSignikaLight;
+        padding-bottom: s(15, 16);
+        position: relative;
+        line-height: 1.35em;
+        .tw{
+          color: $cBlueTwitter;
+          font-family: $fSignikaRegular;
+        }
+        .tb{
+          font-family: $fSignikaSemibold;
+        }
+      }
+    }
+    &__filter{
+      width: 100%;
+      overflow:hidden; // for float left of children
+      height: s(85, 16);
+      &__title{
+        @include hidden();
+      }
+      &__button{
+        &:before{
+          top: 3px;
+          position: relative;
+          left: s(-7, 16);
+          font-size: s($sFontSubTitle, 16);
+        }
+        float: left;
+        display: inline-block;
+        background-color: $cWhite;
+        width: col(1, 4);
+        min-width: 80px;
+        height: s(50, 16);
+        padding: 0;
+        margin: 0;
+        border: 0;
+        @include box-shadow( -1px 0px 0px $cGrey10, 1px 0px 0px $cGrey10 );
+        font-family: $fSignikaSemibold;
+        font-size: s($sFontBaseSup, 16);
+        color: $cGrey10;
+        @include transition(all 0.15s $ease-in-out-elastic);
+        &:hover{
+          height: s(65, 16);
+          color: $cBlue80;
+          cursor: pointer;
+          z-index: 11;
+          position: relative;
+        }
+        &.current{
+          height: s(75, 16);
+          font-family: $fSignikaBold;
+          color: $cBlue80;
+          z-index: 12;
+          position: relative;
+        }
+      }
+      &__button--all{
+        &:before{
+          font-size: s($sFontBaseMed, 16);
+          top: 2px;
+          @include icon(filter);
+        }
+      }
+      &__button--readed{
+        &:before{
+          @include icon(eye2);
+        }
+      }
+      &__button--notreaded{
+        &:before{
+          @include icon(list-unordered);
+        }
+      }
+      &__button--favorite{
+        &:before{
+          @include icon(bookmarks);
+        }
+      }
+
+    }
+    &__parts{
+      width: 100%;
+      padding: s(20, 16) 0;
+    }
+    &__list{
+      display: block;
+      width: tweets-list_col(1, 3);
+      float: left;
+      margin-right: tweets-list_gutter(3);
+      &__title{
+        font-family: $fSignikaSemibold;
+        font-size: s($sFontSubTitle, 16);
+        text-transform: uppercase;
+        padding-bottom: s(5, 16);
+        color: $cBlue80;
+        &:before{
+          top: 5px;
+          position: relative;
+          font-size: s($sFontBigMed, 16);
+          margin-right: s(5, 16);
+        }
+      }
+      &__title--thin{
+        font-family: $fSignikaLight;
+      }
+      &__title--readed{
+        &:before{
+          @include icon(eye2);
+        }
+      }
+      &__title--notreaded{
+        &:before{
+          @include icon(list-unordered);
+        }
+      }
+      &__title--favorite{
+        &:before{
+          @include icon(bookmarks);
+          color: $cYellow;
+        }
+      }
+    }
+    &__list + .main__list + .main__list{
+      margin-right: 0;
+    }
+    :after {
+      content:'';
+      display:block;
+      clear: both;
+    }
+  }
+}
+
+.login-button{
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  vertical-align: middle;
+}

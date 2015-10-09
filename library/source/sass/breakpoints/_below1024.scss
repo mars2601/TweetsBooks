@@ -1,0 +1,27 @@
+// RESPONSIVE
+// BELOW 1024px Standard netbook/tablet resolution
+
+
+.mainPage{
+  .main{
+    &__list{
+      width: tweets-list_col(2, 3);
+      margin-right: 0;
+      &:first-child{
+        margin-right: tweets-list_gutter(3);
+      }
+    }
+    &__list--readed{
+      width: tweets-list_col(1, 3);
+    }
+    &__list--notreaded{
+      width: tweets-list_col(2, 3);
+    }
+    &__list--favorite{
+      width: tweets-list_col(3, 3);
+      .main__list__title{
+        padding-top: s(60, 16);
+      }
+    }
+  }
+}
